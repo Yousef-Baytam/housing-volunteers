@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "listings",
+  "info": {
+    "singularName": "listing",
+    "pluralName": "listings",
+    "displayName": "listing",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "regex": "^\\+?[0-9]+$",
+      "required": true
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "gmapsEmbedUrl": {
+      "type": "string",
+      "regex": "https?:\\/\\/(www\\.)?[a-zA-Z0-9-]{1,256}\\.[a-zA-Z]{2,6}(:[0-9]{1,5})?(\\/[^\\s]*)?"
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "isAvailable": {
+      "type": "boolean",
+      "default": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "FREE",
+        "RENT"
+      ]
+    }
+  }
+}
