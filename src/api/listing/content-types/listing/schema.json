@@ -4,7 +4,7 @@
   "info": {
     "singularName": "listing",
     "pluralName": "listings",
-    "displayName": "listing",
+    "displayName": "Listing",
     "description": ""
   },
   "options": {
@@ -33,20 +33,46 @@
       "type": "string",
       "regex": "https?:\\/\\/(www\\.)?[a-zA-Z0-9-]{1,256}\\.[a-zA-Z]{2,6}(:[0-9]{1,5})?(\\/[^\\s]*)?"
     },
-    "location": {
+    "address": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "isAvailable": {
       "type": "boolean",
       "default": true
     },
-    "type": {
-      "type": "enumeration",
-      "enum": [
-        "FREE",
-        "RENT"
-      ]
+    "region": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::region.region",
+      "inversedBy": "listings"
+    },
+    "listing_type": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::listing-type.listing-type",
+      "inversedBy": "listings"
+    },
+    "updatedByVolunteer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::volunteer.volunteer",
+      "inversedBy": "listing"
+    },
+    "lastUpdated": {
+      "type": "datetime"
+    },
+    "rent": {
+      "type": "decimal",
+      "default": 0
+    },
+    "currency": {
+      "type": "string",
+      "default": "USD"
+    },
+    "capacity": {
+      "type": "integer",
+      "required": true
     }
   }
 }

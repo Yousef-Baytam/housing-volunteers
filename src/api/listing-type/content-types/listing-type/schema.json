@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "listing_types",
+  "info": {
+    "singularName": "listing-type",
+    "pluralName": "listing-types",
+    "displayName": "ListingType",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "listings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::listing.listing",
+      "mappedBy": "listing_type"
+    }
+  }
+}
